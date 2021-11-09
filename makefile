@@ -13,12 +13,8 @@ clean:
 
 .PHONY: test clean
 
-# compile:
-# 	cc -o $(FNAME) $(FNAME).c
+assemble: $(FNAME)
+	./$(FNAME) $(INPUT) > tmp.s
 
-# assemble: compile
-# 	./$(FNAME) $(INPUT) > tmp.s
-
-# testc: assemble
-# 	chmod a+x test.sh
-# 	./test.sh
+chmod:
+	chmod a+x test.sh
