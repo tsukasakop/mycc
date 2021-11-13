@@ -1,5 +1,5 @@
 FNAME = mycc
-INPUT = 123
+INPUT = '1+2+9-8'
 
 CFLAGS=-std=c11 -g -static
 
