@@ -16,8 +16,12 @@ assert() {
   fi
 }
 
+# step1: raw integer
 assert 0 0
 assert 42 42
+# step2: define additon
 assert 21 "5+20-4"
+# step3: introduce tokenizor
+assert 41 " 12 + 34 - 5 "
 
 echo OK
