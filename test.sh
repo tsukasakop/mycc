@@ -1,9 +1,11 @@
 #!/bin/bash
+FNAME="$1"
+
 assert() {
   expected="$1"
   input="$2"
 
-  ./mycc "$input" > tmp.s
+  ./"$FNAME" "$input" > tmp.s
   gcc -o tmp tmp.s
   ./tmp
   actual="$?"
@@ -12,7 +14,7 @@ assert() {
     echo "$input => $actual"
   else
     echo "$input => $expected expected, but got $actual"
-    exit 1
+    # exit 1
   fi
 }
 
@@ -29,5 +31,9 @@ assert 15 '5*(9-6)'
 assert 4 '(3+5)/2'
 # step6: unary addition
 assert 10 '-10+20'
-
+# step7: Comparison operator
+assert 0 '1+1==3'
+assert 1 '1<1!=1<=1'
+assert 1 '1>1!=1>=1'
+assert 1 '1>1==1<1'
 echo OK

@@ -6,7 +6,7 @@ CFLAGS=-std=c11 -g -static
 $(FNAME): $(FNAME).c
 
 test: $(FNAME)
-	./test.sh
+	./test.sh $(FNAME)
 
 clean:
 	rm -f $(FNAME) *.o *~ tmp*
